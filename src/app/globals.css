@@ -3,15 +3,31 @@
 :root {
   --background: #F5F5F3;
   --foreground: #212121;
+  --primary: #8D6E63;
+  --primary-foreground: #FFFFFF;
+  --secondary: #D7CCC8;
+  --accent: #A1887F;
+  --stone-100: #F5F5F4;
+  --stone-200: #E7E5E4;
+}
+
+[data-theme='dark'] {
+  --background: #1C1917;
+  --foreground: #F5F5F3;
+  --primary: #A1887F;
+  --primary-foreground: #FFFFFF;
+  --secondary: #44403C;
+  --accent: #8D6E63;
+  --stone-100: #292524;
+  --stone-200: #44403C;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --color-primary: #8D6E63;
-  --color-secondary: #D7CCC8;
-  --color-accent: #A1887F;
-  --color-stone: #F5F5F3;
+  --color-primary: var(--primary);
+  --color-seconday: var(--secondary);
+  --color-accent: var(--accent);
   --font-sans: var(--font-jakarta);
 }
 
@@ -19,4 +35,5 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-sans);
+  transition: background-color 0.3s ease, color 0.3s ease;
 }

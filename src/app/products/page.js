@@ -15,7 +15,7 @@ export default function ProductsPage() {
     : products.filter(p => p.category === selectedCategory);
 
   return (
-    <div className="container mx-auto px-4 py-12 md:py-20 min-h-screen">
+    <div className="container mx-auto px-4 pt-28 pb-12 md:pt-36 md:pb-20 min-h-screen">
       <div className="text-center max-w-2xl mx-auto mb-16 space-y-4">
         <h1 className="text-4xl md:text-5xl font-bold text-primary">The Collection</h1>
         <p className="text-lg text-foreground/70">

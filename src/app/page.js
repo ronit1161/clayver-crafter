@@ -1,26 +1,36 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
 import { Button } from "@/components/ui/Button";
 import { ProductCard } from "@/components/ui/ProductCard";
 import { products } from "@/data/products";
 
 export default function Home() {
+  const containerRef = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start start", "end start"]
+  });
+  const y = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
+
   const featuredProducts = products.slice(0, 3);
 
   return (
     <div className="flex flex-col gap-20 md:gap-32 pb-20">
       {/* Hero Section */}
-      <section className="relative h-[90vh] flex items-center justify-center overflow-hidden">
+      <section ref={containerRef} className="relative h-[90vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 -z-10 bg-stone-900">
-          <Image
-            src="/images/hero-bg.png"
-            alt="Artist shaping clay"
-            fill
-            className="object-cover opacity-80 brightness-[0.8]"
-            priority
-          />
+          <motion.div style={{ y }} className="absolute inset-0 h-[120%] -top-[10%]">
+             <Image
+              src="/images/hero-bg.png"
+              alt="Artist shaping clay"
+              fill
+              className="object-cover opacity-80 brightness-[0.8]"
+              priority
+            />
+          </motion.div>
           <div className="absolute inset-0 bg-black/20" />
         </div>
         
@@ -28,7 +38,7 @@ export default function Home() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="container mx-auto px-4 text-center text-white space-y-6 max-w-3xl"
+          className="container mx-auto px-4 text-center text-white space-y-6 max-w-3xl z-10"
         >
           <h1 className="text-5xl md:text-7xl font-bold tracking-tight drop-shadow-sm">
             Handmade with Joy
@@ -57,7 +67,7 @@ export default function Home() {
             className="relative h-[500px] rounded-3xl overflow-hidden shadow-xl"
           >
              <Image
-              src="/images/hero-bg.png"
+              src="/images/about-us.png"
               alt="Hands working with clay"
               fill
               className="object-cover"

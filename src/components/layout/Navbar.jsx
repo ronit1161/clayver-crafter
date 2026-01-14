@@ -6,6 +6,7 @@ import { clsx } from "clsx";
 import { Menu, X } from "lucide-react";
 import { useState, useEffect } from "react";
 import { Button } from "../ui/Button";
+import { ThemeToggle } from "../ui/ThemeToggle";
 
 const navLinks = [
     { name: "Home", href: "/" },
@@ -15,6 +16,7 @@ const navLinks = [
 
 export function Navbar() {
     const pathname = usePathname();
+    const isHomePage = pathname === "/";
     const [isOpen, setIsOpen] = useState(false);
     const [scrolled, setScrolled] = useState(false);
 
@@ -39,7 +41,10 @@ export function Navbar() {
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex items-center justify-between h-16">
                     {/* Logo */}
-                    <Link href="/" className="text-2xl font-bold text-primary tracking-tight">
+                    <Link href="/" className={clsx(
+                        "text-2xl font-bold tracking-tight transition-colors",
+                        scrolled || !isHomePage ? "text-primary" : "text-white"
+                    )}>
                         ClayverCrafter
                     </Link>
 
@@ -50,13 +55,16 @@ export function Navbar() {
                                 key={link.name}
                                 href={link.href}
                                 className={clsx(
-                                    "text-sm font-medium transition-colors hover:text-primary",
-                                    pathname === link.href ? "text-primary" : "text-foreground/80"
+                                    "text-sm font-medium transition-colors",
+                                    pathname === link.href
+                                        ? (scrolled || !isHomePage ? "text-primary" : "text-white")
+                                        : (scrolled || !isHomePage ? "text-foreground/80 hover:text-primary" : "text-white/80 hover:text-white")
                                 )}
                             >
                                 {link.name}
                             </Link>
                         ))}
+                        <ThemeToggle />
                         <Button variant="primary" size="sm" onClick={() => window.open('https://instagram.com', '_blank')}>
                             Contact
                         </Button>
@@ -66,7 +74,10 @@ export function Navbar() {
                     <div className="md:hidden">
                         <button
                             onClick={() => setIsOpen(!isOpen)}
-                            className="text-foreground p-2 focus:outline-none"
+                            className={clsx(
+                                "p-2 focus:outline-none transition-colors",
+                                scrolled || !isHomePage ? "text-foreground" : "text-white"
+                            )}
                         >
                             {isOpen ? <X size={24} /> : <Menu size={24} />}
                         </button>
@@ -94,6 +105,7 @@ export function Navbar() {
                                     {link.name}
                                 </Link>
                             ))}
+                            <ThemeToggle />
                             <Button variant="primary" className="w-full" onClick={() => window.open('https://instagram.com', '_blank')}>
                                 Contact Us
                             </Button>

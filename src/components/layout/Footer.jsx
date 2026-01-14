@@ -4,7 +4,7 @@ import { Button } from "../ui/Button";
 
 export function Footer() {
     return (
-        <footer className="bg-white border-t border-stone-200 py-12 md:py-20">
+        <footer className="bg-stone-50 dark:bg-stone-900 border-t border-stone-200 dark:border-stone-800 py-12 md:py-20">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
                     {/* Brand */}
