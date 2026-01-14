@@ -1,0 +1,42 @@
+export const products = [
+  {
+    id: "1",
+    name: "Rabbit Keychain",
+    category: "Accessories",
+    price: 12.00,
+    description: "Cute handcrafted rabbit keychain with a glossy finish.",
+    images: ["/images/rabbit-keychain.jpg"],
+  },
+  {
+    id: "2",
+    name: "Rabbit Pins Duo",
+    category: "Accessories",
+    price: 15.00,
+    description: "Set of two adorable rabbit pins. Perfect for bags or jackets.",
+    images: ["/images/rabbit-pins.jpg"],
+  },
+  {
+    id: "3",
+    name: "Red Trinket Dish",
+    category: "Decor",
+    price: 28.00,
+    description: "Vibrant red dish with gold accents, perfect for jewelry.",
+    images: ["/images/red-dish.jpg"],
+  },
+  {
+    id: "4",
+    name: "Sun Charm",
+    category: "Decor",
+    price: 18.00,
+    description: "Radiant yellow sun charm to brighten your day.",
+    images: ["/images/sun-charm.jpg"],
+  },
+  {
+    id: "5",
+    name: "Duck Paperclip",
+    category: "Stationery",
+    price: 8.00,
+    description: "Whimsical duck paperclip for your planner or books.",
+    images: ["/images/duck-clip.jpg"],
+  },
+];
