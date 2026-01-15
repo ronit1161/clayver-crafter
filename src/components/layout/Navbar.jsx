@@ -34,7 +34,7 @@ export function Navbar() {
             className={clsx(
                 "fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b",
                 scrolled
-                    ? "bg-stone/80 backdrop-blur-md border-stone-200/50 py-2"
+                    ? "bg-white/80 dark:bg-[#1E293B]/80 backdrop-blur-md border-stone-200/50 dark:border-stone-800/50 py-2"
                     : "bg-transparent border-transparent py-4"
             )}
         >

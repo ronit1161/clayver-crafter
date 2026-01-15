@@ -1,33 +1,54 @@
 @import "tailwindcss";
 
 :root {
-  --background: #F5F5F3;
-  --foreground: #212121;
-  --primary: #8D6E63;
+  --background: #F9FAF8;
+  --foreground: #2E2E2E;
+  --primary: #9FBFD9;
   --primary-foreground: #FFFFFF;
-  --secondary: #D7CCC8;
-  --accent: #A1887F;
-  --stone-100: #F5F5F4;
-  --stone-200: #E7E5E4;
+  --secondary: #CFE2F0;
+  --accent: #F4D35E;
+  --success: #8FBFA6;
+  --card: #FFFFFF;
+  --muted: #6B7280;
+  --border: #C8A27A;
+  
+  /* Mapping legacy/tailwind colors to new palette */
+  --stone-100: #CFE2F0; /* Soft Decorative Blue */
+  --stone-200: #C8A27A; /* Clay Accent for borders */
 }
 
 [data-theme='dark'] {
-  --background: #1C1917;
-  --foreground: #F5F5F3;
-  --primary: #A1887F;
+  --background: #121826;
+  --foreground: #E5E7EB;
+  --primary: #3B82A6;
   --primary-foreground: #FFFFFF;
-  --secondary: #44403C;
-  --accent: #8D6E63;
-  --stone-100: #292524;
-  --stone-200: #44403C;
+  --secondary: #2C4A63;
+  --accent: #D4B453;
+  --success: #6FAE9A;
+  --card: #1E293B;
+  --muted: #9CA3AF;
+  --border: #2C4A63;
+
+  /* Mapping legacy/tailwind colors to new palette */
+  --stone-100: #2C4A63; /* Muted Blue */
+  --stone-200: #2C4A63; /* Muted Blue */
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-primary: var(--primary);
-  --color-seconday: var(--secondary);
+  --color-secondary: var(--secondary);
   --color-accent: var(--accent);
+  --color-success: var(--success);
+  --color-card: var(--card);
+  --color-muted: var(--muted);
+  --color-border: var(--border);
+  
+  /* Keep these reachable if components use them directly */
+  --color-stone-100: var(--stone-100);
+  --color-stone-200: var(--stone-200);
+
   --font-sans: var(--font-jakarta);
 }
 
